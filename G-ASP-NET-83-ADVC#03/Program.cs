@@ -43,54 +43,84 @@
 
             #endregion
 
-            #region Ex02: Student Grade Manager
-            // Create a leaderboard that automatically sorts players by score.
-            SortedDictionary<int, string> leaderboard = new();
-            // 1.	Add: 500="Ahmed", 200="Sara", 800="Ali", 350="Mona"
-            leaderboard[500] = "Ahmed";
-            leaderboard[200] = "Sara";
-            leaderboard[800] = "Ali";
-            leaderboard[350] = "Mona";
-            // 2.	Print all entries (they should be sorted by score automatically)
-            Console.WriteLine("Leaderboard:");
-            Leader.PrintLeaderboard(leaderboard);
-            // 3.	Access the first key and first value 
-            Console.WriteLine($"First key: {leaderboard.First().Key}");
-            Console.WriteLine($"First value: {leaderboard.First().Value}");
-            // 4.	Check if score 500 exists
-            Console.WriteLine($"Score 500 exists: {leaderboard.ContainsKey(500)}");
+            #region Ex02: Leaderboard
+            //// Create a leaderboard that automatically sorts players by score.
+            //SortedDictionary<int, string> leaderboard = new();
+            //// 1.	Add: 500="Ahmed", 200="Sara", 800="Ali", 350="Mona"
+            //leaderboard[500] = "Ahmed";
+            //leaderboard[200] = "Sara";
+            //leaderboard[800] = "Ali";
+            //leaderboard[350] = "Mona";
+            //// 2.	Print all entries (they should be sorted by score automatically)
+            //Console.WriteLine("Leaderboard:");
+            //Leader.PrintLeaderboard(leaderboard);
+            //// 3.	Access the first key and first value 
+            //Console.WriteLine($"First key: {leaderboard.First().Key}");
+            //Console.WriteLine($"First value: {leaderboard.First().Value}");
+            //// 4.	Check if score 500 exists
+            //Console.WriteLine($"Score 500 exists: {leaderboard.ContainsKey(500)}");
 
-            // 5.	Safely get the player with score 999
+            //// 5.	Safely get the player with score 999
 
-            // The conditional expression must be enclosed in parentheses inside an interpolated string.
-            // Because the colon : has two possible meanings inside an interpolated string:
-            // belong to the conditional operator: condition ? True : False
-            // a formatting instruction: $"{value:F2}"
-            Console.WriteLine($"Player with score 999 : {(leaderboard.TryGetValue(999, out string? player)? player: "Not found")}");
+            //// The conditional expression must be enclosed in parentheses inside an interpolated string.
+            //// Because the colon : has two possible meanings inside an interpolated string:
+            //// belong to the conditional operator: condition ? True : False
+            //// a formatting instruction: $"{value:F2}"
+            //Console.WriteLine($"Player with score 999 : {(leaderboard.TryGetValue(999, out string? player)? player: "Not found")}");
 
-            // 6.	Remove the player with score 200 and print the updated list
-            leaderboard.Remove(200);
-            Console.WriteLine($"Leaderboard after player with score 200: ");
-            Leader.PrintLeaderboard(leaderboard);
-
-
+            //// 6.	Remove the player with score 200 and print the updated list
+            //leaderboard.Remove(200);
+            //Console.WriteLine($"Leaderboard after player with score 200: ");
+            //Leader.PrintLeaderboard(leaderboard);
 
 
-            #endregion
 
-            #region Ex03: Student Grade Manager
 
             #endregion
 
-            #region Ex04: Student Grade Manager
+            #region Ex03: Phone Book
+            // 1.	Create a Collection  with 4 contacts (name → phone number)
+            Dictionary<string,string> phoneBook = new Dictionary<string, string>();
+            
+            // 2.	Add a new contact using [] syntax (add or update)
+            phoneBook["Ahmed"] = "01011105555";
+            phoneBook["Sara"] = "01011105557";
+            phoneBook["Omnia"] = "01011105355";
+
+            // 3.	Try adding a duplicate using .Add() — catch the exception and print the error
+            try
+            {
+                phoneBook.Add("Ahmed", "01011105558");
+            } catch(ArgumentException ex)
+            {
+               Console.WriteLine($"Adding duplicate: {ex.Message}");  
+            }
+            Console.WriteLine();
+            Console.WriteLine(string.Join(", " , phoneBook));
+            Console.WriteLine("-------------------------------");
+            // 4.	Try adding a duplicate using .TryAdd() — print whether it succeeded
+            Console.WriteLine(phoneBook.TryAdd("Ahmed", "01011105559"));
+
+            // 5.	Search for a contact that doesn’t exist
+            Console.WriteLine(phoneBook.ContainsKey("Mohamed"));
+            // or 
+            //phoneBook.TryGetValue("Mohamed", out string val);
+            //Console.WriteLine(val);
+
+            // 6.	Get a contact with a fallback of "Not Found"
+            DictionaryTools.PrintKVDifferLine(phoneBook);
 
             #endregion
 
-            #region Ex05: Student Grade Manager
+            #region Ex04: Unique Email Validator
 
             #endregion
 
-            #region Ex06: Student Grade Manager
+            #region Ex05: Print Queue Simulator
+
+            #endregion
+
+            #region Ex06: Browser History (Undo)    
 
             #endregion
 
