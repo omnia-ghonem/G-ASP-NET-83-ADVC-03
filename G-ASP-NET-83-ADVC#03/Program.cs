@@ -11,6 +11,10 @@
             Console.WriteLine();
             Console.WriteLine("--------------------------------");
         }
+
+        
+
+
         static void Main(string[] args)
         {
 
@@ -146,6 +150,37 @@
             #endregion
 
             #region Ex05: Print Queue Simulator
+
+            // Create a Queue<string> 
+            Queue<string> queue = new Queue<string>();
+            queue.Enqueue("Report.pdf");
+            queue.Enqueue("Invoice.pdf");
+            queue.Enqueue("Letter.docx");
+            queue.Enqueue("Resume.pdf");
+            queue.Enqueue("Photo.jpg");
+
+            // 1.	Print the queue contents and Count
+            Console.WriteLine($"{string.Join(", ", queue)}");
+            Console.WriteLine($"Queue count: {queue.Count()}");
+
+            // 2.	Use Peek to see which document will print next (without removing)
+            Console.WriteLine($"Queue Peek: {(queue.TryPeek(out string result)? result:"No Peek")}");
+
+            // 3.	Process the queue: Dequeue each document and print "Printing: [name]"
+            while(queue.Count() > 0) {
+                Console.WriteLine($"Printing: {queue.Dequeue()}");
+            }
+
+            // 4.	Try TryDequeue on the now-empty queue — what happens?
+            // TryDequeue returns False and assigns null to the output variable
+            // does throw an exception
+            Console.WriteLine($"Queue Peek: {(queue.TryDequeue(out string? document) ? document : "Empty queue")}");
+            
+
+
+
+
+
 
             #endregion
 
