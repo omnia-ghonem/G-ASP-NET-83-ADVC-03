@@ -151,31 +151,31 @@
 
             #region Ex05: Print Queue Simulator
 
-            // Create a Queue<string> 
-            Queue<string> queue = new Queue<string>();
-            queue.Enqueue("Report.pdf");
-            queue.Enqueue("Invoice.pdf");
-            queue.Enqueue("Letter.docx");
-            queue.Enqueue("Resume.pdf");
-            queue.Enqueue("Photo.jpg");
+            //// Create a Queue<string> 
+            //Queue<string> queue = new Queue<string>();
+            //queue.Enqueue("Report.pdf");
+            //queue.Enqueue("Invoice.pdf");
+            //queue.Enqueue("Letter.docx");
+            //queue.Enqueue("Resume.pdf");
+            //queue.Enqueue("Photo.jpg");
 
-            // 1.	Print the queue contents and Count
-            Console.WriteLine($"{string.Join(", ", queue)}");
-            Console.WriteLine($"Queue count: {queue.Count()}");
+            //// 1.	Print the queue contents and Count
+            //Console.WriteLine($"{string.Join(", ", queue)}");
+            //Console.WriteLine($"Queue count: {queue.Count()}");
 
-            // 2.	Use Peek to see which document will print next (without removing)
-            Console.WriteLine($"Queue Peek: {(queue.TryPeek(out string result)? result:"No Peek")}");
+            //// 2.	Use Peek to see which document will print next (without removing)
+            //Console.WriteLine($"Queue Peek: {(queue.TryPeek(out string result)? result:"No Peek")}");
 
-            // 3.	Process the queue: Dequeue each document and print "Printing: [name]"
-            while(queue.Count() > 0) {
-                Console.WriteLine($"Printing: {queue.Dequeue()}");
-            }
+            //// 3.	Process the queue: Dequeue each document and print "Printing: [name]"
+            //while(queue.Count() > 0) {
+            //    Console.WriteLine($"Dequeue: {queue.Dequeue()}");
+            //}
 
-            // 4.	Try TryDequeue on the now-empty queue — what happens?
-            // TryDequeue returns False and assigns null to the output variable
-            // does throw an exception
-            Console.WriteLine($"Queue Peek: {(queue.TryDequeue(out string? document) ? document : "Empty queue")}");
-            
+            //// 4.	Try TryDequeue on the now-empty queue — what happens?
+            //// TryDequeue returns False and assigns null to the output variable
+            //// does throw an exception
+            //Console.WriteLine($"Queue Peek: {(queue.TryDequeue(out string? document) ? document : "Empty queue")}");
+
 
 
 
@@ -185,6 +185,35 @@
             #endregion
 
             #region Ex06: Browser History (Undo)    
+            // Create a Stack<string> for browser history
+            Stack<string> stack = new Stack<string>();
+
+            // 1.	Push 5 URLs: "google.com", "github.com", "stackoverflow.com", "youtube.com", "claude.ai"
+            stack.Push("google.com");
+            stack.Push("github.com");
+            stack.Push("stackoverflow.com");
+            stack.Push("youtube.com");
+            stack.Push("claude.ai");
+
+            // 2.	Use Peek to see the current page (top of stack)
+            Console.WriteLine($"Peek of Stack{(stack.TryPeek(out string? peek)? peek: "Empty Stack")}");
+
+            // 3.	Press "back" 3 times using Pop — print each page you leave
+            for (int i = 0; i<3; i++) { 
+               Console.WriteLine($"Pop stack: {stack.Pop()}");
+            
+            }
+
+            // 4.	Print the current page after going back
+            Console.WriteLine($"Current page after going back: {stack.Peek()}");
+
+            // 5.	Try TryPop on an empty stack — what happens?
+            // The stack must be emptied first to test empty case.
+            while (stack.Count() > 0) {
+                Console.WriteLine($"Pop stack: {stack.Pop()}");
+            }
+            Console.WriteLine($"Pop Stack: {(stack.TryPop(out string? page) ? page : "Empty Stack")}");
+            // TryPop returns False and null without throwing an exception
 
             #endregion
 
